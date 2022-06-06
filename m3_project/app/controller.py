@@ -1,10 +1,10 @@
 from objectpack.observer import (
-	ObservableController,
-	Observer,
+    ObservableController,
+    Observer,
 )
 
 observer = Observer()
 controller = ObservableController(
-	url='actions',
-	observer=observer,
+    url='actions',
+    observer=observer,
 )
