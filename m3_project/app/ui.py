@@ -35,9 +35,21 @@ class UserAddWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        self.field__birthday = ext.ExtDateField(
-            label=u'Дата рождения',
-            name='birthday',
+        self.field__date_joined = ext.ExtDateField(
+            label=u'registration date',
+            name='date_joined',
+            anchor='100%')
+
+        self.field__is_stuff = ext.ExtStringField(
+            label=u'admin',
+            name='is_stuff',
+            allow_blank=False,
+            anchor='100%')
+
+        self.field__is_active = ext.ExtStringField(
+            label=u'online',
+            name='is_active',
+            allow_blank=False,
             anchor='100%')
 
     def _do_layout(self):

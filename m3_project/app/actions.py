@@ -33,6 +33,10 @@ class UserPack(ObjectPack):
             'data_index': 'is_active',
             'header': u'online',
         },
+        {
+            'data_index': 'date_joined',
+            'header': u'registration date',
+        },
     ]
 
 
