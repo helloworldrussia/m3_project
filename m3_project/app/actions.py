@@ -2,11 +2,15 @@ from django.contrib.auth.models import User, Group, Permission
 from django.contrib.contenttypes.models import ContentType
 from objectpack.actions import ObjectPack
 
+from m3_project.app.ui import UserAddWindow
+
 
 class UserPack(ObjectPack):
     model = User
     add_to_menu = True
     can_delete = True
+
+    add_window = UserAddWindow
 
     columns = [
         {
