@@ -18,4 +18,4 @@ def register_actions():
 def register_desktop_menu():
     desktop.uificate_the_controller(
         controller,
-        menu_root=desktop.MainMenu.SubMenu('Demo'))
+        menu_root=desktop.MainMenu.SubMenu('CRUD Task'))
