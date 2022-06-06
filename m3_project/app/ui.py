@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Permission
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
@@ -132,7 +133,11 @@ class GroupAddWindow(BaseEditWindow):
             label=u'permissions',
             name='permissions',
             allow_blank=False,
-            anchor='100%')
+            trigger_action=ext.BaseExtTriggerField.ALL)
+        self.field__model.store = ext.ExtDataStore(
+            data=Permission.objects.all()
+        )
+
 
 
     def _do_layout(self):
