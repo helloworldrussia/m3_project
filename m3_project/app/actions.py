@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group, Permission
 from django.contrib.contenttypes.models import ContentType
 from objectpack.actions import ObjectPack
 
-from .ui import UserAddWindow
+from .ui import UserAddWindow, ContentTypeAddWindow, GroupAddWindow, PermissionAddWindow
 
 
 class UserPack(ObjectPack):
@@ -15,43 +15,33 @@ class UserPack(ObjectPack):
     columns = [
         {
             'data_index': 'username',
-            'header': u'username',
+            'header': u'Логин',
         },
         {
             'data_index': 'first_name',
-            'header': u'first name',
+            'header': u'Имя',
+        },
+        {
+            'data_index': 'last_name',
+            'header': u'Фамилия',
         },
         {
             'data_index': 'email',
-            'header': u'email',
-        },
-        {
-            'data_index': 'username',
-            'header': u'username',
+            'header': u'E-mail',
         },
         {
             'data_index': 'is_staff',
-            'header': u'admin',
+            'header': u'Админ',
         },
         {
             'data_index': 'is_active',
-            'header': u'online',
+            'header': u'Активен',
         },
         {
             'data_index': 'date_joined',
-            'header': u'registration date',
+            'header': u'Дата регистрации',
         },
     ]
-
-    # def prepare_row(self, obj, request, context):
-    #
-    #     obj.is_active = '<div class="x-grid3-check-col%s"/>' % (
-    #         '-on' if obj.is_active is True else '')
-    #
-    #     # obj.is_staff = '<div class="x-grid3-check-col%s"/>' % (
-    #     #     '-on' if obj.is_staff is True else '')
-    #
-    #     return obj
 
 
 class ContentTypePack(ObjectPack):
@@ -59,14 +49,69 @@ class ContentTypePack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
+    add_window = edit_window = ContentTypeAddWindow
+
+    columns = [
+        {
+            'data_index': 'app_label',
+            'header': u'Название приложения',
+        },
+        {
+            'data_index': 'model',
+            'header': u'Модель',
+        },
+        {
+            'data_index': 'objects',
+            'header': u'Объекты',
+        },
+    ]
+
 
 class GroupPack(ObjectPack):
     model = Group
     add_to_menu = True
     can_delete = True
 
+    add_window = edit_window = GroupAddWindow
+
+    columns = [
+        {
+            'data_index': 'name',
+            'header': u'Имя',
+        },
+        {
+            'data_index': 'permissions',
+            'header': u'Разрешения',
+        },
+        {
+            'data_index': 'objects',
+            'header': u'Объекты',
+        },
+    ]
+
 
 class PermissionPack(ObjectPack):
     model = Permission
     add_to_menu = True
     can_delete = True
+
+    add_window = edit_window = PermissionAddWindow
+
+    columns = [
+        {
+            'data_index': 'name',
+            'header': u'Имя',
+        },
+        {
+            'data_index': 'content_type',
+            'header': u'Content Type',
+        },
+        {
+            'data_index': 'codename',
+            'header': u'Кодовое имя',
+        },
+        {
+            'data_index': 'objects',
+            'header': u'Объекты',
+        },
+    ]
