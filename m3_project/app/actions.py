@@ -26,7 +26,7 @@ class UserPack(ObjectPack):
             'header': u'username',
         },
         {
-            'data_index': 'is_stuff',
+            'data_index': 'is_staff',
             'header': u'admin',
         },
         {

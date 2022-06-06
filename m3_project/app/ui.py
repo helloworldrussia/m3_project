@@ -42,7 +42,7 @@ class UserAddWindow(BaseEditWindow):
 
         self.field__is_stuff = ext.ExtStringField(
             label=u'admin',
-            name='is_stuff',
+            name='is_staff',
             allow_blank=False,
             anchor='100%')
 
@@ -56,7 +56,7 @@ class UserAddWindow(BaseEditWindow):
         """
         Здесь размещаем компоненты в окне
         """
-        super(PersonAddWindow, self)._do_layout()
+        super(UserAddWindow, self)._do_layout()
         self.form.items.extend((
             self.field__name,
             self.field__surname,
@@ -70,5 +70,5 @@ class UserAddWindow(BaseEditWindow):
 
         :params: Словарь с параметрами, передается из пака
         """
-        super(PersonAddWindow, self).set_params(params)
+        super(UserAddWindow, self).set_params(params)
         self.height = 'auto'
