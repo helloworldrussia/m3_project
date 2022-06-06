@@ -97,7 +97,7 @@ class PermissionPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ContentTypeAddWindow
+    add_window = edit_window = PermissionAddWindow
 
     columns = [
         {
