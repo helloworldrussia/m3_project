@@ -87,14 +87,8 @@ class ContentTypeAddWindow(BaseEditWindow):
             anchor='100%')
 
         self.field__model = ext.ExtStringField(
-            label=u'Модель',
+            label=u'model',
             name='model',
-            allow_blank=False,
-            anchor='100%')
-
-        self.field__objects = ext.ExtStringField(
-            label=u'Объекты',
-            name='objects',
             allow_blank=False,
             anchor='100%')
 
