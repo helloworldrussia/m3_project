@@ -70,7 +70,7 @@ class GroupPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ModelEditWindow.fabricate(model)
+    add_window = edit_window = GroupAddWindow
 
     columns = [
         {
