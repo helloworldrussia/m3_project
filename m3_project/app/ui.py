@@ -1,6 +1,5 @@
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
-from m3_ext.ux.form import ExtDateTimeField
 
 
 class UserAddWindow(BaseEditWindow):
@@ -60,7 +59,6 @@ class UserAddWindow(BaseEditWindow):
             self.field__email,
             self.field__is_active,
             self.field__is_staff,
-            self.field__date_joined,
         ))
 
     def set_params(self, params):
