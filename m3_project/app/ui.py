@@ -35,14 +35,14 @@ class UserAddWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        self.field__is_staff = ext.ExtStringField(
-            label=u'admin',
+        self.field__is_staff = ext.ExtCheckBox(
+            label=u'is_staff',
             name='is_staff',
             allow_blank=False,
             anchor='100%')
 
-        self.field__is_active = ext.ExtStringField(
-            label=u'online',
+        self.field__is_active = ext.ExtCheckBox(
+            label=u'is_active',
             name='is_active',
             allow_blank=False,
             anchor='100%')
@@ -129,22 +129,17 @@ class GroupAddWindow(BaseEditWindow):
         super(GroupAddWindow, self)._init_components()
 
         self.field__app_label = ext.ExtStringField(
-            label=u'Имя',
+            label=u'name',
             name='name',
             allow_blank=False,
             anchor='100%')
 
-        self.field__model = ext.ExtStringField(
-            label=u'Разрешения',
+        self.field__model = ext.ExtComboBox(
+            label=u'permissions',
             name='permissions',
             allow_blank=False,
             anchor='100%')
 
-        self.field__objects = ext.ExtStringField(
-            label=u'Объекты',
-            name='objects',
-            allow_blank=False,
-            anchor='100%')
 
     def _do_layout(self):
         """
@@ -177,19 +172,19 @@ class PermissionAddWindow(BaseEditWindow):
         super(PermissionAddWindow, self)._init_components()
 
         self.field__name = ext.ExtStringField(
-            label=u'Имя',
+            label=u'name',
             name='name',
             allow_blank=False,
             anchor='100%')
 
         self.field__model = ext.ExtStringField(
-            label=u'Content Type',
+            label=u'content_type',
             name='content_type',
             allow_blank=False,
             anchor='100%')
 
         self.field__code_name = ext.ExtStringField(
-            label=u'Кодовое имя',
+            label=u'codename',
             name='codename',
             allow_blank=False,
             anchor='100%')
