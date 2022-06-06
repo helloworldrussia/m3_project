@@ -39,15 +39,15 @@ class UserPack(ObjectPack):
         },
     ]
 
-    def prepare_row(self, obj, request, context):
-
-        obj.is_active = '<div class="x-grid3-check-col%s"/>' % (
-            '-on' if obj.is_active is True else '')
-
-        # obj.is_staff = '<div class="x-grid3-check-col%s"/>' % (
-        #     '-on' if obj.is_staff is True else '')
-
-        return obj
+    # def prepare_row(self, obj, request, context):
+    #
+    #     obj.is_active = '<div class="x-grid3-check-col%s"/>' % (
+    #         '-on' if obj.is_active is True else '')
+    #
+    #     # obj.is_staff = '<div class="x-grid3-check-col%s"/>' % (
+    #     #     '-on' if obj.is_staff is True else '')
+    #
+    #     return obj
 
 
 class ContentTypePack(ObjectPack):
