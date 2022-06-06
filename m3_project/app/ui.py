@@ -2,6 +2,8 @@ from django.contrib.auth.models import Permission
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
+from .actions import GroupPack
+
 
 class UserAddWindow(BaseEditWindow):
 
@@ -130,13 +132,14 @@ class GroupAddWindow(BaseEditWindow):
             anchor='100%')
 
         self.field__permissions = ext.ExtComboBox(
+            label='permissions',
             display_field='name',
             value_field='id',
             trigger_action=ext.BaseExtTriggerField.ALL
         )
         self.field__permissions.store = ext.ExtDataStore(
-            data=[(12, 'name'), (13, 'name2')]
-            # data=list(Permission.objects.all().values_list('pk', 'codename'))
+            # data=[(12, 'name'), (13, 'name2')]
+            data=list(Permission.objects.all().values_list('pk', 'codename'))
         )
 
     def _do_layout(self):
@@ -157,6 +160,10 @@ class GroupAddWindow(BaseEditWindow):
         """
         super(GroupAddWindow, self).set_params(params)
         self.height = 'auto'
+
+    def save_row(self, obj, create_new, request, context):
+        obj.permissions = Permission.objects.get(pk=obj.permissions)
+        super(GroupPack, self).save_row(obj, create_new, request, context)
 
 
 class PermissionAddWindow(BaseEditWindow):
