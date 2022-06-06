@@ -67,48 +67,6 @@ class ContentTypePack(ObjectPack):
     ]
 
 
-class GroupPack(ObjectPack):
-    model = Group
-    add_to_menu = True
-    can_delete = True
-
-    add_window = edit_window = GroupAddWindow
-
-    columns = [
-        {
-            'data_index': 'name',
-            'header': u'name',
-        },
-        {
-            'data_index': 'permissions',
-            'header': u'permissions',
-        },
-    ]
-
-
-class PermissionPack(ObjectPack):
-    model = Permission
-    add_to_menu = True
-    can_delete = True
-
-    add_window = edit_window = PermissionAddWindow
-
-    columns = [
-        {
-            'data_index': 'name',
-            'header': u'Имя',
-        },
-        {
-            'data_index': 'content_type',
-            'header': u'Content Type',
-        },
-        {
-            'data_index': 'codename',
-            'header': u'Кодовое имя',
-        },
-    ]
-
-
 class GroupAddWindow(BaseEditWindow):
 
     def _init_components(self):
@@ -157,3 +115,45 @@ class GroupAddWindow(BaseEditWindow):
     def save_row(self, obj, create_new, request, context):
         obj.permissions = Permission.objects.get(pk=obj.permissions)
         super(GroupPack, self).save_row(obj, create_new, request, context)
+
+
+class GroupPack(ObjectPack):
+    model = Group
+    add_to_menu = True
+    can_delete = True
+
+    add_window = edit_window = GroupAddWindow
+
+    columns = [
+        {
+            'data_index': 'name',
+            'header': u'name',
+        },
+        {
+            'data_index': 'permissions',
+            'header': u'permissions',
+        },
+    ]
+
+
+class PermissionPack(ObjectPack):
+    model = Permission
+    add_to_menu = True
+    can_delete = True
+
+    add_window = edit_window = PermissionAddWindow
+
+    columns = [
+        {
+            'data_index': 'name',
+            'header': u'Имя',
+        },
+        {
+            'data_index': 'content_type',
+            'header': u'Content Type',
+        },
+        {
+            'data_index': 'codename',
+            'header': u'Кодовое имя',
+        },
+    ]
