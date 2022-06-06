@@ -145,7 +145,7 @@ class GroupAddWindow(BaseEditWindow):
         super(GroupAddWindow, self)._do_layout()
         self.form.items.extend((
             self.field__name,
-            self.field__peremissions,
+            self.field__permissions,
         ))
 
     def set_params(self, params):
