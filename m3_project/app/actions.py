@@ -14,8 +14,24 @@ class UserPack(ObjectPack):
             'header': u'username',
         },
         {
+            'data_index': 'first_name',
+            'header': u'first name',
+        },
+        {
             'data_index': 'email',
             'header': u'email',
+        },
+        {
+            'data_index': 'username',
+            'header': u'username',
+        },
+        {
+            'data_index': 'is_stuff',
+            'header': u'admin',
+        },
+        {
+            'data_index': 'is_active',
+            'header': u'online',
         },
     ]
 
