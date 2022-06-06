@@ -123,13 +123,13 @@ class GroupAddWindow(BaseEditWindow):
         """
         super(GroupAddWindow, self)._init_components()
 
-        self.field__app_label = ext.ExtStringField(
+        self.field__name = ext.ExtStringField(
             label=u'name',
-            name='name',
+            name='app_label',
             allow_blank=False,
             anchor='100%')
 
-        self.field__model = ext.ExtComboBox(
+        self.field__permissions = ext.ExtComboBox(
             label=u'permissions',
             name='permissions',
             allow_blank=False,
@@ -137,8 +137,6 @@ class GroupAddWindow(BaseEditWindow):
         self.field__model.store = ext.ExtDataStore(
             data=Permission.objects.all()
         )
-
-
 
     def _do_layout(self):
         """
@@ -148,7 +146,6 @@ class GroupAddWindow(BaseEditWindow):
         self.form.items.extend((
             self.field__name,
             self.field__peremissions,
-            self.field__objects,
         ))
 
     def set_params(self, params):
