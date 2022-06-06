@@ -72,7 +72,9 @@ class GroupPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = GroupAddWindow
+    # add_window = edit_window = GroupAddWindow
+
+    add_window = edit_window = objectpack.ui.ModelEditWindow.fabricate(Permission)
 
     columns = [
         {
@@ -95,8 +97,8 @@ class PermissionPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = PermissionAddWindow
-
+    # add_window = edit_window = PermissionAddWindow
+    add_window = edit_window = objectpack.ui.ModelEditWindow.fabricate(Permission)
     columns = [
         {
             'data_index': 'name',
