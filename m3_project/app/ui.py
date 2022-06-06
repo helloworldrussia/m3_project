@@ -125,7 +125,7 @@ class GroupAddWindow(BaseEditWindow):
 
         self.field__name = ext.ExtStringField(
             label=u'name',
-            name='app_label',
+            name='name',
             allow_blank=False,
             anchor='100%')
 
@@ -134,7 +134,7 @@ class GroupAddWindow(BaseEditWindow):
             name='permissions',
             allow_blank=False,
             trigger_action=ext.BaseExtTriggerField.ALL)
-        self.field__model.store = ext.ExtDataStore(
+        self.field__permissions.store = ext.ExtDataStore(
             data=Permission.objects.all()
         )
 
