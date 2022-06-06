@@ -135,7 +135,7 @@ class GroupAddWindow(BaseEditWindow):
             allow_blank=False,
             trigger_action=ext.BaseExtTriggerField.ALL)
         self.field__permissions.store = ext.ExtDataStore(
-            data=Permission.objects.all().values('pk', 'codename')
+            data=Permission.objects.all().value_list('pk', 'codename')
         )
 
     def _do_layout(self):
