@@ -112,8 +112,4 @@ class PermissionPack(ObjectPack):
             'data_index': 'codename',
             'header': u'Кодовое имя',
         },
-        {
-            'data_index': 'objects',
-            'header': u'Объекты',
-        },
     ]
