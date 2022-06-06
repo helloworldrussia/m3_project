@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group, Permission
 from django.contrib.contenttypes.models import ContentType
 from objectpack.actions import ObjectPack
 
-from m3_project.app.ui import UserAddWindow
+from .ui import UserAddWindow
 
 
 class UserPack(ObjectPack):
