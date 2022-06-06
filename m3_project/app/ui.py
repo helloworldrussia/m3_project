@@ -130,11 +130,10 @@ class GroupAddWindow(BaseEditWindow):
             anchor='100%')
 
         self.field__permissions = ext.ExtComboBox(
-            label=u'permissions',
-            name='permissions',
-            allow_blank=False,
-            trigger_action=ext.BaseExtTriggerField.ALL,
-            value_field='id')
+            display_field='name',
+            value_field='id',
+            trigger_action=ext.BaseExtTriggerField.ALL
+        )
         self.field__permissions.store = ext.ExtDataStore(
             data=[(12, 'name'), (13, 'name2')]
             # data=list(Permission.objects.all().values_list('pk', 'codename'))
