@@ -1,11 +1,13 @@
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.contenttypes.models import ContentType
-import objectpack
+from objectpack.actions import ObjectPack
+
+from objectpack.ui import ModelEditWindow
 
 from .ui import UserAddWindow, ContentTypeAddWindow, GroupAddWindow, PermissionAddWindow
 
 
-class UserPack(objectpack.actions.ObjectPack):
+class UserPack(ObjectPack):
     model = User
     add_to_menu = True
     can_delete = True
@@ -44,12 +46,12 @@ class UserPack(objectpack.actions.ObjectPack):
     ]
 
 
-class ContentTypePack(objectpack.actions.ObjectPack):
+class ContentTypePack(ObjectPack):
     model = ContentType
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ContentTypeAddWindow
+    add_window = edit_window = ModelEditWindow.fabricate(model)
 
     columns = [
         {
@@ -67,14 +69,12 @@ class ContentTypePack(objectpack.actions.ObjectPack):
     ]
 
 
-class GroupPack(objectpack.actions.ObjectPack):
+class GroupPack(ObjectPack):
     model = Group
     add_to_menu = True
     can_delete = True
 
-    # add_window = edit_window = GroupAddWindow
-
-    add_window = edit_window = objectpack.ui.ModelEditWindow.fabricate(Permission)
+    add_window = edit_window = ModelEditWindow.fabricate(model)
 
     columns = [
         {
@@ -92,28 +92,28 @@ class GroupPack(objectpack.actions.ObjectPack):
     ]
 
 
-class PermissionPack(objectpack.actions.ObjectPack):
+class PermissionPack(ObjectPack):
     model = Permission
     add_to_menu = True
     can_delete = True
 
-    # add_window = edit_window = PermissionAddWindow
-    add_window = edit_window = objectpack.ui.ModelEditWindow.fabricate(Permission)
-    columns = [
-        {
-            'data_index': 'name',
-            'header': u'Имя',
-        },
-        {
-            'data_index': 'content_type',
-            'header': u'Content Type',
-        },
-        {
-            'data_index': 'codename',
-            'header': u'Кодовое имя',
-        },
-        {
-            'data_index': 'objects',
-            'header': u'Объекты',
-        },
-    ]
+    add_window = edit_window = ModelEditWindow.fabricate(model)
+
+    # columns = [
+    #     {
+    #         'data_index': 'name',
+    #         'header': u'Имя',
+    #     },
+    #     {
+    #         'data_index': 'content_type',
+    #         'header': u'Content Type',
+    #     },
+    #     {
+    #         'data_index': 'codename',
+    #         'header': u'Кодовое имя',
+    #     },
+    #     {
+    #         'data_index': 'objects',
+    #         'header': u'Объекты',
+    #     },
+    # ]
