@@ -176,7 +176,7 @@ class PermissionAddWindow(BaseEditWindow):
         """
         super(PermissionAddWindow, self)._init_components()
 
-        self.field__app_label = ext.ExtStringField(
+        self.field__name = ext.ExtStringField(
             label=u'Имя',
             name='name',
             allow_blank=False,
