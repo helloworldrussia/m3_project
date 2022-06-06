@@ -1,10 +1,12 @@
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.contenttypes.models import ContentType
 from objectpack.actions import ObjectPack
-
+from django.contrib.auth.models import Permission
+from objectpack.ui import BaseEditWindow, make_combo_box
+from m3_ext.ui import all_components as ext
 from objectpack.ui import ModelEditWindow
 
-from .ui import UserAddWindow, ContentTypeAddWindow, GroupAddWindow, PermissionAddWindow
+from .ui import UserAddWindow, ContentTypeAddWindow, PermissionAddWindow
 
 
 class UserPack(ObjectPack):
@@ -105,3 +107,53 @@ class PermissionPack(ObjectPack):
             'header': u'Кодовое имя',
         },
     ]
+
+
+class GroupAddWindow(BaseEditWindow):
+
+    def _init_components(self):
+        """
+        Здесь следует инициализировать компоненты окна и складывать их в
+        :attr:`self`.
+        """
+        super(GroupAddWindow, self)._init_components()
+
+        self.field__name = ext.ExtStringField(
+            label=u'name',
+            name='name',
+            allow_blank=False,
+            anchor='100%')
+
+        self.field__permissions = ext.ExtComboBox(
+            label='permissions',
+            display_field='name',
+            value_field='id',
+            trigger_action=ext.BaseExtTriggerField.ALL
+        )
+        self.field__permissions.store = ext.ExtDataStore(
+            # data=[(12, 'name'), (13, 'name2')]
+            data=list(Permission.objects.all().values_list('pk', 'codename'))
+        )
+
+    def _do_layout(self):
+        """
+        Здесь размещаем компоненты в окне
+        """
+        super(GroupAddWindow, self)._do_layout()
+        self.form.items.extend((
+            self.field__name,
+            self.field__permissions,
+        ))
+
+    def set_params(self, params):
+        """
+        Установка параметров окна
+
+        :params: Словарь с параметрами, передается из пака
+        """
+        super(GroupAddWindow, self).set_params(params)
+        self.height = 'auto'
+
+    def save_row(self, obj, create_new, request, context):
+        obj.permissions = Permission.objects.get(pk=obj.permissions)
+        super(GroupPack, self).save_row(obj, create_new, request, context)
