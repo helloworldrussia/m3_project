@@ -13,42 +13,42 @@ class UserAddWindow(BaseEditWindow):
 
         self.field__username = ext.ExtStringField(
             label=u'username',
-            name='username',
+            # name='username',
             allow_blank=False,
             anchor='100%')
 
         self.field__first_name = ext.ExtStringField(
             label=u'first name',
-            name='first_name',
+            # name='first_name',
             allow_blank=False,
             anchor='100%')
 
         self.field__last_name = ext.ExtStringField(
             label=u'last name',
-            name='last_name',
+            # name='last_name',
             allow_blank=False,
             anchor='100%')
 
-        self.field__last_name = ext.ExtStringField(
+        self.field__email = ext.ExtStringField(
             label=u'email',
-            name='email',
+            # name='email',
             allow_blank=False,
             anchor='100%')
 
         self.field__date_joined = ext.ExtDateField(
             label=u'registration date',
-            name='date_joined',
+            # name='date_joined',
             anchor='100%')
 
-        self.field__is_stuff = ext.ExtStringField(
+        self.field__is_staff = ext.ExtStringField(
             label=u'admin',
-            name='is_staff',
+            # name='is_staff',
             allow_blank=False,
             anchor='100%')
 
         self.field__is_active = ext.ExtStringField(
             label=u'online',
-            name='is_active',
+            # name='is_active',
             allow_blank=False,
             anchor='100%')
 
