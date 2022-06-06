@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from objectpack import desktop
 
-from .actions import UserPack
+from .actions import UserPack, PermissionPack, ContentTypePack, GroupPack
 from .controller import controller
 
 
@@ -11,7 +11,8 @@ def register_urlpatterns():
 
 def register_actions():
     return controller.packs.extend([
-        UserPack()
+        UserPack(), PermissionPack(),
+        ContentTypePack(), GroupPack(),
     ])
 
 
