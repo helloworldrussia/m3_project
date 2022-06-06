@@ -1,5 +1,7 @@
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
+from m3_ext.ux.form import ExtDateTimeField
+
 
 class UserAddWindow(BaseEditWindow):
 
@@ -32,11 +34,6 @@ class UserAddWindow(BaseEditWindow):
             label=u'email',
             name='email',
             allow_blank=False,
-            anchor='100%')
-
-        self.field__date_joined = ext.ux.form.ExtDateTimeField(
-            label=u'registration date',
-            name='date_joined',
             anchor='100%')
 
         self.field__is_staff = ext.ExtStringField(
