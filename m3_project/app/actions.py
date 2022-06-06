@@ -10,7 +10,7 @@ class UserPack(ObjectPack):
 
     columns = [
         {
-            'data_index': '__unicode__',
+            'data_index': 'username',
             'header': u'username',
         },
         {
