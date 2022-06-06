@@ -10,7 +10,7 @@ class UserPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = UserAddWindow
+    add_window = edit_window = UserAddWindow
 
     columns = [
         {
