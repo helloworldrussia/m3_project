@@ -35,7 +35,7 @@ class UserAddWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        self.field__date_joined = ext.ExtDateField(
+        self.field__date_joined = ext.ExtDateTimeField(
             label=u'registration date',
             name='date_joined',
             anchor='100%')
