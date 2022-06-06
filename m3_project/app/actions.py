@@ -1,11 +1,11 @@
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.contenttypes.models import ContentType
-from objectpack.actions import ObjectPack
+import objectpack
 
 from .ui import UserAddWindow, ContentTypeAddWindow, GroupAddWindow, PermissionAddWindow
 
 
-class UserPack(ObjectPack):
+class UserPack(objectpack.actions.ObjectPack):
     model = User
     add_to_menu = True
     can_delete = True
@@ -44,7 +44,7 @@ class UserPack(ObjectPack):
     ]
 
 
-class ContentTypePack(ObjectPack):
+class ContentTypePack(objectpack.actions.ObjectPack):
     model = ContentType
     add_to_menu = True
     can_delete = True
@@ -67,7 +67,7 @@ class ContentTypePack(ObjectPack):
     ]
 
 
-class GroupPack(ObjectPack):
+class GroupPack(objectpack.actions.ObjectPack):
     model = Group
     add_to_menu = True
     can_delete = True
@@ -92,7 +92,7 @@ class GroupPack(ObjectPack):
     ]
 
 
-class PermissionPack(ObjectPack):
+class PermissionPack(objectpack.actions.ObjectPack):
     model = Permission
     add_to_menu = True
     can_delete = True
