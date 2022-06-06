@@ -17,31 +17,31 @@ class UserPack(ObjectPack):
     columns = [
         {
             'data_index': 'username',
-            'header': u'Логин',
+            'header': u'username',
         },
         {
             'data_index': 'first_name',
-            'header': u'Имя',
+            'header': u'first_name',
         },
         {
             'data_index': 'last_name',
-            'header': u'Фамилия',
+            'header': u'last_name',
         },
         {
             'data_index': 'email',
-            'header': u'E-mail',
+            'header': u'email',
         },
         {
             'data_index': 'is_staff',
-            'header': u'Админ',
+            'header': u'is_staff',
         },
         {
             'data_index': 'is_active',
-            'header': u'Активен',
+            'header': u'is_active',
         },
         {
             'data_index': 'date_joined',
-            'header': u'Дата регистрации',
+            'header': u'date_joined',
         },
     ]
 
@@ -56,15 +56,11 @@ class ContentTypePack(ObjectPack):
     columns = [
         {
             'data_index': 'app_label',
-            'header': u'Название приложения',
+            'header': u'app_label',
         },
         {
             'data_index': 'model',
-            'header': u'Модель',
-        },
-        {
-            'data_index': 'objects',
-            'header': u'Объекты',
+            'header': u'model',
         },
     ]
 
@@ -79,15 +75,11 @@ class GroupPack(ObjectPack):
     columns = [
         {
             'data_index': 'name',
-            'header': u'Имя',
+            'header': u'name',
         },
         {
             'data_index': 'permissions',
-            'header': u'Разрешения',
-        },
-        {
-            'data_index': 'objects',
-            'header': u'Объекты',
+            'header': u'permissions',
         },
     ]
 
