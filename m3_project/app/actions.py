@@ -150,7 +150,7 @@ class GroupPack(ObjectPack):
 
     def prepare_row(self, obj, request, context):
         group = Group.objects.get(name=obj.name)
-        obj.permissions = group.permissions.all()
+        obj.permissions.set(group.permissions.all())
         return obj
 
 
