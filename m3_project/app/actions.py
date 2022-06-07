@@ -168,10 +168,6 @@ class PermissionPack(ObjectPack):
             'data_index': '__unicode__',
             'header': u'Наименование',
         },
-        {
-            'data_index': 'Permission.content_type.name',
-            'select_related': ('content_type',),
-        }
         # {
         #     'data_index': 'content_type',
         #     'header': u'Content Type',
