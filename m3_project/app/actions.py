@@ -143,7 +143,7 @@ class GroupPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'permissions',
+            'data_index': 'group.permissions.permission',
             'header': u'permissions',
         },
     ]
