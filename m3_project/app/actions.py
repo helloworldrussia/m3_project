@@ -6,6 +6,7 @@ from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 from objectpack.ui import ModelEditWindow
 
+from .models import PermissionProxy
 from .ui import UserAddWindow, ContentTypeAddWindow, PermissionAddWindow
 
 
@@ -155,12 +156,11 @@ class GroupPack(ObjectPack):
 
 
 class PermissionPack(ObjectPack):
-    model = Permission
-    relation = ContentTypePack
+    model = PermissionProxy
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ModelEditWindow.fabricate(Permission)
+    add_window = edit_window = ModelEditWindow.fabricate(model)
 
     columns = [
         {
