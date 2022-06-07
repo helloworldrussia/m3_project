@@ -90,7 +90,7 @@ class GroupAddWindow(BaseEditWindow):
         )
         self.field__permissions.store = ext.ExtDataStore(
             # data=[(12, 'name'), (13, 'name2')]
-            data=Permission.objects.all()
+            data=list(Permission.objects.all().value_list('pk', 'codename'))
         )
 
     def _do_layout(self):
@@ -114,11 +114,11 @@ class GroupAddWindow(BaseEditWindow):
 
     def save_row(self, obj, create_new, request, context):
         print('+')
-        buffer = obj.permissions
-        obj.permissions = None
+        permission = Permission.objects.get(pk=obj.permission)
+        obj.permission = None
         super(GroupPack, self).save_row(obj, create_new, request, context)
         group = Group.objects.get(name=obj.name)
-        group.permission.add(buffer)
+        group.permission.add(permission)
         print('++')
 
 
