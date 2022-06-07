@@ -90,7 +90,7 @@ class GroupAddWindow(BaseEditWindow):
         )
         self.field__permissions.store = ext.ExtDataStore(
             # data=[(12, 'name'), (13, 'name2')]
-            data=list(Permission.objects.all().value_list('pk', 'codename'))
+            data=list(Permission.objects.all().values_list('pk', 'codename'))
         )
 
     def _do_layout(self):
