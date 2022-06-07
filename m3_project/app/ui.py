@@ -2,8 +2,6 @@ from django.contrib.auth.models import Permission, Group
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
-from .actions import GroupPack
-
 
 class GroupAddWindow(BaseEditWindow):
 
