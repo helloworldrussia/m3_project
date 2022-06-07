@@ -89,9 +89,6 @@ class GroupAddWindow(BaseEditWindow):
             anchor='100%',
             data=list(Permission.objects.all().values_list('pk', 'codename')),
         )
-        self.field__permissions.store = ext.ComboBoxWithStore(
-            manager=PermissionManager()
-        )
 
         # self.field__permissions = ext.ExtComboBox(
         #     label='permissions',
