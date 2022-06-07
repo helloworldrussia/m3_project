@@ -157,7 +157,7 @@ class GroupPack(ObjectPack):
 
 class PermissionPack(ObjectPack):
     model = Permission
-    select_related = ['content_type']
+    select_related = []
     add_to_menu = True
     can_delete = True
 
