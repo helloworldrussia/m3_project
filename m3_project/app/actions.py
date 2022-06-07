@@ -139,7 +139,7 @@ class GroupPack(ObjectPack):
             'header': u'permissions',
             'filter': {
                 'type': 'list',
-                'options': Permission.objects.all()
+                'options': list(Permission.objects.all())
             }
         },
     ]
