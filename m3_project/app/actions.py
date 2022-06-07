@@ -80,18 +80,26 @@ class GroupAddWindow(BaseEditWindow):
             label=u'name',
             name='name',
             allow_blank=False,
-            anchor='100%')
+            anchor='100%'),
 
-        self.field__permissions = ext.ExtComboBox(
-            label='permissions',
-            display_field='id',
-            value_field='name',
-            trigger_action=ext.BaseExtTriggerField.ALL
-        )
-        self.field__permissions.store = ext.ExtDataStore(
-            # data=[(12, 'name'), (13, 'name2')]
+        self.field__permissions = make_combo_box(
+            label=u'permissions',
+            name='permissions',
+            allow_blank=False,
+            anchor='100%',
             data=list(Permission.objects.all().values_list('pk', 'codename'))
         )
+
+        # self.field__permissions = ext.ExtComboBox(
+        #     label='permissions',
+        #     display_field='id',
+        #     value_field='name',
+        #     trigger_action=ext.BaseExtTriggerField.ALL
+        # )
+        # self.field__permissions.store = ext.ExtDataStore(
+        #     # data=[(12, 'name'), (13, 'name2')]
+        #     data=list(Permission.objects.all().values_list('pk', 'codename'))
+        # )
 
     def _do_layout(self):
         """
@@ -127,7 +135,7 @@ class GroupPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ModelEditWindow.fabricate(Group)
+    add_window = edit_window = GroupAddWindow
 
     columns = [
         {
@@ -135,12 +143,8 @@ class GroupPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'permissions',
+            'data_index': 'permissions__codename',
             'header': u'permissions',
-            'filter': {
-                'type': 'list',
-                'options': ['G', 'F', 'H'] #list(Permission.objects.all().values_list('pk', 'codename', 'name'))
-            }
         },
     ]
 
