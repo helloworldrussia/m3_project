@@ -156,6 +156,7 @@ class GroupPack(ObjectPack):
 
 class PermissionPack(ObjectPack):
     model = Permission
+    related_model = ContentTypePack
     add_to_menu = True
     can_delete = True
 
