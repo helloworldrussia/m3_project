@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group, Permission, PermissionManage
 from django.contrib.contenttypes.models import ContentType
 from objectpack.actions import ObjectPack
 from django.contrib.auth.models import Permission
-from objectpack.ui import BaseEditWindow, make_combo_box
+from objectpack.ui import BaseEditWindow, make_combo_box, make_combo_box_with_store
 from m3_ext.ui import all_components as ext
 from objectpack.ui import ModelEditWindow
 
@@ -82,12 +82,14 @@ class GroupAddWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%'),
 
-        self.field__permissions = make_combo_box(
+        self.field__permissions = make_combo_box_with_store(
             label=u'permissions',
             name='permissions',
             allow_blank=False,
             anchor='100%',
             data=list(Permission.objects.all().values_list('pk', 'codename')),
+        )
+        self.field__permissions.store = ext.ComboBoxWithStore(
             manager=PermissionManager()
         )
 
