@@ -135,7 +135,7 @@ class GroupPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'permissions',
+            'data_index': '__unicode__',
             'header': u'permissions',
         },
     ]
