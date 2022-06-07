@@ -113,8 +113,12 @@ class GroupAddWindow(BaseEditWindow):
         self.height = 'auto'
 
     def save_row(self, obj, create_new, request, context):
-        obj.permissions = Permission.objects.get(pk=obj.permissions)
+        print('+')
         super(GroupPack, self).save_row(obj, create_new, request, context)
+        group = Group.objects.get(name=obj.name)
+        group.permission.set(Permission.objects.get(pk=obj.permissions))
+        group.save()
+        print('++')
 
 
 class GroupPack(ObjectPack):

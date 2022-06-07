@@ -1,4 +1,4 @@
-from django.contrib.auth.models import Permission
+from django.contrib.auth.models import Permission, Group
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
@@ -51,9 +51,10 @@ class GroupAddWindow(BaseEditWindow):
         self.height = 'auto'
 
     def save_row(self, obj, create_new, request, context):
-        obj.permissions = Permission.objects.get(pk=obj.permissions)
         super(GroupPack, self).save_row(obj, create_new, request, context)
-
+        group = Group.objects.get(name=obj.name)
+        group.permission.set(Permission.objects.get(pk=obj.permissions))
+        group.save()
 
 
 class UserAddWindow(BaseEditWindow):
