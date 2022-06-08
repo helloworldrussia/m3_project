@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
-from m3_project.app.mixins import get_qs_tuple
+from .mixins import get_qs_tuple
 
 
 class GroupAddWindow(BaseEditWindow):
