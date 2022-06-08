@@ -173,7 +173,7 @@ class PermissionPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'content_type',
+            'data_index': 'permission.content_type.pk',
             'header': u'content_type',
         },
         {
