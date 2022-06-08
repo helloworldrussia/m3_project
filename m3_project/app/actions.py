@@ -144,7 +144,7 @@ class GroupPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'group.permissions.permission',
+            'data_index': 'permissions',
             'header': u'permissions',
         },
     ]
@@ -157,7 +157,9 @@ class GroupPack(ObjectPack):
 
 class PermissionPack(ObjectPack):
     model = Permission
-    select_related = ['content_type',]
+
+    select_related = ['ContentTypePack']
+
     add_to_menu = True
     can_delete = True
 
