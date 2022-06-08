@@ -161,7 +161,7 @@ class ContentTypePack(ObjectPack):
         return None
 
 
-class PermissionPack(BasePack):
+class PermissionPack(BasePack, ObjectPack):
     model = PermissionProxy
     # parent = ContentTypePack
     relations = ['content_type']
