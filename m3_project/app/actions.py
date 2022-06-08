@@ -172,25 +172,36 @@ class PermissionPack(ObjectPack):
 
     add_window = edit_window = ModelEditWindow.fabricate(model)
 
-    columns = [
-        {
-            'data_index': '__unicode__',
-            'hidden': True,
-        },
-        {
-            'data_index': 'name',
-            'header': u'name',
-        },
-        {
-            'data_index': 'content_type',
-            'header': u'content_type',
-            'pack': ContentTypePack,
-        },
-        {
-            'data_index': 'codename',
-            'header': u'codename',
-        },
-    ]
+    # columns = [
+    #     {
+    #         'data_index': '__unicode__',
+    #         'hidden': True,
+    #     },
+    #     {
+    #         'data_index': 'name',
+    #         'header': u'name',
+    #     },
+    #     {
+    #         'data_index': 'content_type',
+    #         'header': u'content_type',
+    #         'pack': ContentTypePack,
+    #     },
+    #     {
+    #         'data_index': 'codename',
+    #         'header': u'codename',
+    #     },
+    # ]
+
+    grid = ext.ExtGrid(title=u'Произвольный грид')
+    name_column = ext.ExtGridColumn(header=u'name', data_index='name')
+    content_type_column = ext.ExtGridColumn(pack=ContentTypePack,
+                                            header=u'content_type', data_index='content_type')
+    codename_column = ext.ExtGridColumn(header=u'codename', data_index='codename')
+    grid.columns.extend([
+        content_type_column,
+        name_column,
+        codename_column
+    ])
 
     @staticmethod
     def _get_model_pack(model_name):
