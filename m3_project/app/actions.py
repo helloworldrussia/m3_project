@@ -170,7 +170,7 @@ class PermissionPack(ObjectPack):
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ModelEditWindow.fabricate(model)
+    add_window = edit_window = PermissionAddWindow
 
     columns = [
         {
@@ -190,8 +190,3 @@ class PermissionPack(ObjectPack):
             'header': u'codename',
         },
     ]
-
-    @staticmethod
-    def _get_model_pack(model_name):
-        print('YES!!!!')
-        return ContentTypePack
