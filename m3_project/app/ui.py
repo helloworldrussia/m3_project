@@ -181,11 +181,12 @@ class PermissionAddWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        self.field__content_type = ext.ExtStringField(
+        self.field__content_type = make_combo_box(
             label=u'content_type',
             name='content_type',
             allow_blank=False,
-            anchor='100%')
+            anchor='100%',
+            data=[(1, 'h'), (2, '2')])
 
         self.field__code_name = ext.ExtStringField(
             label=u'codename',
@@ -212,7 +213,3 @@ class PermissionAddWindow(BaseEditWindow):
         """
         super(PermissionAddWindow, self).set_params(params)
         self.height = 'auto'
-
-    def save_row(self, obj, create_new, request, context):
-        print(111111111111111111111111111111111)
-        super(PermissionAddWindow, self).save_row(obj, create_new, request, context)
