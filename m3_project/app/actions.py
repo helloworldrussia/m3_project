@@ -155,13 +155,17 @@ class ContentTypePack(ObjectPack):
         },
     ]
 
+    @staticmethod
+    def _get_model_pack(model_name):
+        print('YES!!!!')
+        return None
+
 
 class PermissionPack(ObjectPack):
     model = Permission
     # parent = ContentTypePack
 
     select_related = ['content_type']
-    model_name = 'ContentType'
 
     add_to_menu = True
     can_delete = True
@@ -186,8 +190,3 @@ class PermissionPack(ObjectPack):
             'header': u'codename',
         },
     ]
-
-    @staticmethod
-    def _get_model_pack(model_name):
-        print('YES!!!!')
-        return None
