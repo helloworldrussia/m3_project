@@ -14,6 +14,7 @@ def register_actions():
     return controller.packs.extend([
         UserPack(), PermissionPack(),
         ContentTypePack(), GroupPack(),
+        ContentTypePack._get_model_pack('ContentType'),
     ])
 
 

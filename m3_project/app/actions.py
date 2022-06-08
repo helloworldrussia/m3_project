@@ -184,7 +184,6 @@ class PermissionPack(ObjectPack):
         {
             'data_index': 'content_type',
             'header': u'content_type',
-            'renderer': 'ContentType_render',
         },
         {
             'data_index': 'codename',
