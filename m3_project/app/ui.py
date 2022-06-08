@@ -217,3 +217,6 @@ class PermissionAddWindow(BaseEditWindow):
         """
         super(PermissionAddWindow, self).set_params(params)
         self.height = 'auto'
+
+    def save_row(self, obj, create_new, request, context):
+        print("save_row")
