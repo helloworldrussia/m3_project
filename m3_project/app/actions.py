@@ -138,7 +138,7 @@ class GroupPack(ObjectPack):
 
 class ContentTypePack(ObjectPack):
     model = ContentType
-
+    model_name = 'ContentType'
     add_to_menu = True
     can_delete = True
 
@@ -161,7 +161,6 @@ class PermissionPack(ObjectPack):
     # parent = ContentTypePack
 
     select_related = ['content_type']
-
     model_name = 'ContentType'
 
     add_to_menu = True
