@@ -161,8 +161,8 @@ class ContentTypePack(ObjectPack):
         return None
 
 
-class PermissionPack(BasePack, ObjectPack):
-    model = PermissionProxy
+class PermissionPack(ObjectPack):
+    model = Permission
     # parent = ContentTypePack
     relations = ['content_type']
     select_related = ['content_type']
@@ -173,10 +173,10 @@ class PermissionPack(BasePack, ObjectPack):
     add_window = edit_window = ModelEditWindow.fabricate(model)
 
     columns = [
-        # {
-        #     'data_index': '__unicode__',
-        #     'header': u'Наименование',
-        # },
+        {
+            'data_index': '__unicode__',
+            'hidden': True,
+        },
         {
             'data_index': 'name',
             'header': u'name',
