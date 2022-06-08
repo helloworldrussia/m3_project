@@ -178,7 +178,7 @@ class PermissionPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'content_type',
+            'data_index': 'app.actions.ContentTypePack',
             'header': u'content_type',
         },
         {
