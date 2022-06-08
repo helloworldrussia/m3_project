@@ -158,6 +158,7 @@ class GroupPack(ObjectPack):
 
 class PermissionPack(ObjectPack):
     model = Permission
+    parent = ContentTypePack
 
     select_related = ['content_type']
 
