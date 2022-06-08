@@ -1,6 +1,6 @@
 def get_qs_tuple(model):
     res = []
     qs = model.objects.all()
-    for i in range(1, len(qs) + 1):
+    for i in range(0, len(qs)):
         res.append((i, qs[i]))
     return res
