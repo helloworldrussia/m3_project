@@ -51,10 +51,11 @@ class UserPack(ObjectPack):
 
 class ContentTypePack(ObjectPack):
     model = ContentType
+
     add_to_menu = True
     can_delete = True
 
-    add_window = edit_window = ContentTypeAddWindow
+    add_window = edit_window = ModelEditWindow.fabricate(model)
 
     columns = [
         {
@@ -177,7 +178,6 @@ class PermissionPack(ObjectPack):
         {
             'data_index': 'content_type',
             'header': u'content_type',
-            'select_related': ('content_type',),
         },
         {
             'data_index': 'codename',
