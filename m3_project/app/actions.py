@@ -49,26 +49,6 @@ class UserPack(ObjectPack):
     ]
 
 
-class ContentTypePack(ObjectPack):
-    model = ContentType
-
-    add_to_menu = True
-    can_delete = True
-
-    add_window = edit_window = ModelEditWindow.fabricate(model)
-
-    columns = [
-        {
-            'data_index': 'app_label',
-            'header': u'app_label',
-        },
-        {
-            'data_index': 'model',
-            'header': u'model',
-        },
-    ]
-
-
 class GroupAddWindow(BaseEditWindow):
 
     def _init_components(self):
@@ -193,3 +173,23 @@ class PermissionPack(ObjectPack):
         if model_name == 'ContentType':
             return ContentTypePack
         return None
+
+
+class ContentTypePack(ObjectPack):
+    model = ContentType
+    parent = PermissionPack
+    add_to_menu = True
+    can_delete = True
+
+    add_window = edit_window = ModelEditWindow.fabricate(model)
+
+    columns = [
+        {
+            'data_index': 'app_label',
+            'header': u'app_label',
+        },
+        {
+            'data_index': 'model',
+            'header': u'model',
+        },
+    ]
