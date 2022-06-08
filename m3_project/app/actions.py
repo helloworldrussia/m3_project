@@ -162,7 +162,7 @@ class ContentTypePack(ObjectPack):
 
 
 class PermissionPack(ObjectPack):
-    model = Permission
+    model = PermissionProxy
     # parent = ContentTypePack
     relations = ['content_type']
     select_related = ['content_type']

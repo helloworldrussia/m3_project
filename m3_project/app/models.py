@@ -7,4 +7,4 @@ from objectpack.models import ModelProxy
 
 class PermissionProxy(ModelProxy):
     model = Permission
-    relation = ContentType
+    relations = ['content_type']
