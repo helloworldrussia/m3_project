@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group, Permission, PermissionManager
 from django.contrib.contenttypes.models import ContentType
-from objectpack.actions import ObjectPack
+from objectpack.actions import ObjectPack, BasePack
 from django.contrib.auth.models import Permission
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
@@ -161,7 +161,7 @@ class ContentTypePack(ObjectPack):
         return None
 
 
-class PermissionPack(ObjectPack):
+class PermissionPack(BasePack):
     model = PermissionProxy
     # parent = ContentTypePack
     relations = ['content_type']
@@ -190,3 +190,8 @@ class PermissionPack(ObjectPack):
             'header': u'codename',
         },
     ]
+
+    @staticmethod
+    def _get_model_pack(model_name):
+        print('YES!!!!')
+        return None
