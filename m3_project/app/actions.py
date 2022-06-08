@@ -173,7 +173,7 @@ class PermissionPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'content_type.pk',
+            'data_index': 'content_type',
             'header': u'content_type',
         },
         {
@@ -181,3 +181,11 @@ class PermissionPack(ObjectPack):
             'header': u'codename',
         },
     ]
+
+    @staticmethod
+    def _get_model_pack(model_name):
+        print('_get_model_pack')
+        print(model_name)
+        if model_name == 'ContentType':
+            return ContentTypePack
+        return None
