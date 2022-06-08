@@ -189,7 +189,7 @@ class PermissionAddWindow(BaseEditWindow):
             name='content_type',
             allow_blank=False,
             anchor='100%',
-            data=list(ContentType.objects.all().values_list('pk', 'app_label'))
+            data=list(ContentType.objects.all().values_list('pk', 'pk'))
         )
 
         self.field__code_name = ext.ExtStringField(
