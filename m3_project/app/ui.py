@@ -1,4 +1,5 @@
 from django.contrib.auth.models import Permission, Group
+from django.contrib.contenttypes.models import ContentType
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
@@ -186,7 +187,7 @@ class PermissionAddWindow(BaseEditWindow):
             name='content_type',
             allow_blank=False,
             anchor='100%',
-            data=[(1, 'h'), (2, '2')])
+            data=ContentType.objects.all())
 
         self.field__code_name = ext.ExtStringField(
             label=u'codename',
