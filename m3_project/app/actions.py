@@ -157,23 +157,27 @@ class GroupPack(ObjectPack):
 
 class PermissionPack(ObjectPack):
     model = Permission
-    # select_related = []
+    select_related = []
     add_to_menu = True
     can_delete = True
 
     add_window = edit_window = ModelEditWindow.fabricate(model)
 
     columns = [
+        # {
+        #     'data_index': '__unicode__',
+        #     'header': u'Наименование',
+        # },
         {
-            'data_index': '__unicode__',
-            'header': u'Наименование',
+            'data_index': 'name',
+            'header': u'name',
         },
-        # {
-        #     'data_index': 'content_type',
-        #     'header': u'Content Type',
-        # },
-        # {
-        #     'data_index': 'codename',
-        #     'header': u'Кодовое имя',
-        # },
+        {
+            'data_index': 'content_type',
+            'header': u'content_type',
+        },
+        {
+            'data_index': 'codename',
+            'header': u'codename',
+        },
     ]
