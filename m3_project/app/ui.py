@@ -3,6 +3,8 @@ from django.contrib.contenttypes.models import ContentType
 from objectpack.ui import BaseEditWindow, make_combo_box
 from m3_ext.ui import all_components as ext
 
+from m3_project.app.mixins import get_qs_tuple
+
 
 class GroupAddWindow(BaseEditWindow):
 
@@ -187,7 +189,7 @@ class PermissionAddWindow(BaseEditWindow):
             name='content_type',
             allow_blank=False,
             anchor='100%',
-            data=list(ContentType.objects.all()))
+            data=get_qs_tuple(ContentType))
 
         self.field__code_name = ext.ExtStringField(
             label=u'codename',
