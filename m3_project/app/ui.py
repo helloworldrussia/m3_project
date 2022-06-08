@@ -187,7 +187,7 @@ class PermissionAddWindow(BaseEditWindow):
             name='content_type',
             allow_blank=False,
             anchor='100%',
-            data=ContentType.objects.all())
+            data=list(ContentType.objects.all()))
 
         self.field__code_name = ext.ExtStringField(
             label=u'codename',
