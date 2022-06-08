@@ -164,7 +164,7 @@ class ContentTypePack(ObjectPack):
 class PermissionPack(ObjectPack):
     model = Permission
     # parent = ContentTypePack
-
+    relations = ['content_type']
     select_related = ['content_type']
 
     add_to_menu = True
