@@ -181,7 +181,7 @@ class PermissionAddWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        self.field__model = ext.ExtStringField(
+        self.field__content_type = ext.ExtStringField(
             label=u'content_type',
             name='content_type',
             allow_blank=False,
@@ -202,7 +202,6 @@ class PermissionAddWindow(BaseEditWindow):
             self.field__name,
             self.field__content_type,
             self.field__code_name,
-            self.field__objects,
         ))
 
     def set_params(self, params):
