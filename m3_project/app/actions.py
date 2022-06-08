@@ -178,7 +178,7 @@ class PermissionPack(ObjectPack):
             'header': u'name',
         },
         {
-            'data_index': 'app.actions.ContentTypePack',
+            'data_index': 'content_type',
             'header': u'content_type',
         },
         {
@@ -186,3 +186,8 @@ class PermissionPack(ObjectPack):
             'header': u'codename',
         },
     ]
+
+    @staticmethod
+    def _get_model_pack(model_name):
+        print('YES!!!!')
+        return None
