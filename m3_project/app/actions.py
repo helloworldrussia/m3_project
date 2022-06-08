@@ -7,7 +7,7 @@ from m3_ext.ui import all_components as ext
 from objectpack.ui import ModelEditWindow
 
 from .models import PermissionProxy
-from .ui import UserAddWindow, ContentTypeAddWindow, PermissionAddWindow
+from .ui import UserAddWindow, ContentTypeAddWindow#, PermissionAddWindow
 
 
 class UserPack(ObjectPack):
@@ -159,6 +159,58 @@ class ContentTypePack(ObjectPack):
     def _get_model_pack(model_name):
         print('YES!!!!')
         return None
+
+
+class PermissionAddWindow(BaseEditWindow):
+
+    def _init_components(self):
+        """
+        Здесь следует инициализировать компоненты окна и складывать их в
+        :attr:`self`.
+        """
+        super(PermissionAddWindow, self)._init_components()
+
+        self.field__name = ext.ExtStringField(
+            label=u'name',
+            name='name',
+            allow_blank=False,
+            anchor='100%')
+
+        self.field__content_type = ext.ExtStringField(
+            label=u'content_type',
+            name='content_type',
+            allow_blank=False,
+            anchor='100%')
+
+        self.field__code_name = ext.ExtStringField(
+            label=u'codename',
+            name='codename',
+            allow_blank=False,
+            anchor='100%')
+
+    def _do_layout(self):
+        """
+        Здесь размещаем компоненты в окне
+        """
+        super(PermissionAddWindow, self)._do_layout()
+        self.form.items.extend((
+            self.field__name,
+            self.field__content_type,
+            self.field__code_name,
+        ))
+
+    def set_params(self, params):
+        """
+        Установка параметров окна
+
+        :params: Словарь с параметрами, передается из пака
+        """
+        super(PermissionAddWindow, self).set_params(params)
+        self.height = 'auto'
+
+    def save_row(self, obj, create_new, request, context):
+        print(111111111111111111111111111111111)
+        super(PermissionPack, self).save_row(obj, create_new, request, context)
 
 
 class PermissionPack(ObjectPack):
