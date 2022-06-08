@@ -136,11 +136,32 @@ class GroupPack(ObjectPack):
         return obj
 
 
+class ContentTypePack(ObjectPack):
+    model = ContentType
+
+    add_to_menu = True
+    can_delete = True
+
+    add_window = edit_window = ModelEditWindow.fabricate(model)
+
+    columns = [
+        {
+            'data_index': 'app_label',
+            'header': u'app_label',
+        },
+        {
+            'data_index': 'model',
+            'header': u'model',
+        },
+    ]
+
+
 class PermissionPack(ObjectPack):
     model = Permission
     # parent = ContentTypePack
 
     select_related = ['content_type']
+    select_model = ContentTypePack
 
     add_to_menu = True
     can_delete = True
@@ -163,34 +184,5 @@ class PermissionPack(ObjectPack):
         {
             'data_index': 'codename',
             'header': u'codename',
-        },
-    ]
-
-    @staticmethod
-    def _get_model_pack(model_name):
-        print('_get_model_pack')
-        print(model_name)
-        if model_name == 'ContentType':
-            return ContentTypePack
-        return None
-
-
-class ContentTypePack(ObjectPack):
-    model = ContentType
-    # parent = PermissionPack
-    short_name = 'ContentType'
-    add_to_menu = True
-    can_delete = True
-
-    add_window = edit_window = ModelEditWindow.fabricate(model)
-
-    columns = [
-        {
-            'data_index': 'app_label',
-            'header': u'app_label',
-        },
-        {
-            'data_index': 'model',
-            'header': u'model',
         },
     ]
