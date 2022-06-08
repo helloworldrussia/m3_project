@@ -7,7 +7,7 @@ from m3_ext.ui import all_components as ext
 from objectpack.ui import ModelEditWindow
 
 from .models import PermissionProxy
-from .ui import UserAddWindow, ContentTypeAddWindow#, PermissionAddWindow
+from .ui import UserAddWindow, ContentTypeAddWindow, PermissionAddWindow
 
 
 class UserPack(ObjectPack):
