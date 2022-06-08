@@ -192,6 +192,7 @@ class PermissionPack(ObjectPack):
     ]
 
     def save_row(self, obj, create_new, request, context):
+        print(obj.content_type)
         obj.content_type = ContentType.objects.get(pk=obj.content_type)
         super(PermissionPack, self).save_row(obj, create_new, request, context)
 

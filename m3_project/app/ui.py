@@ -187,6 +187,7 @@ class PermissionAddWindow(BaseEditWindow):
         self.field__content_type = make_combo_box(
             label=u'content_type',
             name='content_type',
+            value_field='id',
             allow_blank=False,
             anchor='100%',
             data=list(ContentType.objects.all().values_list('pk', 'app_label'))
