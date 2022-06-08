@@ -190,3 +190,6 @@ class PermissionPack(ObjectPack):
             'header': u'codename',
         },
     ]
+
+    def save_row(self, obj, create_new, request, context):
+        print("save_row")
