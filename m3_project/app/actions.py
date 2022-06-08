@@ -161,7 +161,7 @@ class PermissionPack(ObjectPack):
     # parent = ContentTypePack
 
     select_related = ['content_type']
-    select_model = ContentTypePack
+    realted_model = ContentTypePack
 
     add_to_menu = True
     can_delete = True
