@@ -194,7 +194,7 @@ class PermissionPack(ObjectPack):
 
     grid = ext.ExtGrid(title=u'Произвольный грид')
     name_column = ext.ExtGridColumn(header=u'name', data_index='name')
-    content_type_column = ext.ExtGridColumn(pack=ContentTypePack,
+    content_type_column = ext.ExtGridColumn(pack='ContentTypePack',
                                             header=u'content_type', data_index='content_type')
     codename_column = ext.ExtGridColumn(header=u'codename', data_index='codename')
     grid.columns.extend([
