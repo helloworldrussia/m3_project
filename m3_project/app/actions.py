@@ -177,7 +177,7 @@ class PermissionPack(ObjectPack):
 
 class ContentTypePack(ObjectPack):
     model = ContentType
-    parent = PermissionPack
+    parent = 'PermissionPack'
     add_to_menu = True
     can_delete = True
 
